@@ -1,0 +1,93 @@
+<main class="bg-gray-50 py-8">
+    <!-- Page Header -->
+    <h1 class="text-2xl font-bold mb-6">Dashboard</h1>
+  
+    <!-- Top Section with Cards -->
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-3 py-6">
+      <!-- Account Balance Card -->
+      <div class="bg-white p-6 rounded-lg shadow">
+        <div class="flex justify-between items-center">
+          <span class="text-gray-800 font-semibold">Account Balance</span>
+          <svg class="w-6 h-6 text-indigo-500">
+            <use xlink:href="/path-to-icons.svg#currency-dollar-icon"></use>
+          </svg>
+        </div>
+        <div class="text-center mt-4">
+          <div class="text-3xl font-bold text-gray-900">${{ accountBalance | number }}</div>
+          <div class="text-sm text-gray-500">Updated 5 mins ago</div>
+        </div>
+      </div>
+  
+      <!-- Team Members Card -->
+      <div class="bg-white p-6 rounded-lg shadow">
+        <div class="flex justify-between items-center">
+          <span class="text-gray-800 font-semibold">Team Members</span>
+          <svg class="w-6 h-6 text-green-500">
+            <use xlink:href="/path-to-icons.svg#user-group-icon"></use>
+          </svg>
+        </div>
+        <div class="text-center mt-4">
+          <div class="text-3xl font-bold text-gray-900">{{ teamMembers }}</div>
+          <div class="text-sm text-gray-500">Growing steadily</div>
+        </div>
+      </div>
+  
+      <!-- Total Turnover Card -->
+      <div class="bg-white p-6 rounded-lg shadow">
+        <div class="flex justify-between items-center">
+          <span class="text-gray-800 font-semibold">Total Turnover</span>
+          <svg class="w-6 h-6 text-blue-500">
+            <use xlink:href="/path-to-icons.svg#circle-stack-icon"></use>
+          </svg>
+        </div>
+        <div class="text-center mt-4">
+          <div class="text-3xl font-bold text-gray-900">${{ totalTurnover | number }}</div>
+          <div class="text-sm text-gray-500">Year-to-Date</div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Mid Section with Gauge Charts -->
+    <div class="py-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <!-- Performance Score -->
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        <h3 class="text-lg font-semibold text-gray-700 text-center">
+          Performance Score
+        </h3>
+        <ngx-circular-progressbar
+          [value]="performance"
+          [text]="performance + '%'"
+          [styles]="{
+            pathColor: '#6366F1',
+            trailColor: '#D1D5DB',
+            textColor: '#374151',
+            textSize: '18px'
+          }"
+        ></ngx-circular-progressbar>
+        <p class="text-sm text-center text-gray-500 mt-4">
+          Improving month over month
+        </p>
+      </div>
+  
+      <!-- Goal Completion -->
+      <div class="bg-white rounded-lg shadow-lg p-6">
+        <h3 class="text-lg font-semibold text-gray-700 text-center">
+          Goal Completion
+        </h3>
+        <ngx-circular-progressbar
+          [value]="70"
+          [text]="'70%'"
+          [styles]="{
+            pathColor: '#34D399',
+            trailColor: '#D1D5DB',
+            textColor: '#374151',
+            textSize: '18px'
+          }"
+        ></ngx-circular-progressbar>
+        <p class="text-sm text-center text-gray-500 mt-4">
+          70% of goals achieved
+        </p>
+      </div>
+    </div>
+  </main>
+  
